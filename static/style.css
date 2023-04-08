@@ -95,7 +95,7 @@ nav{
 .section2{
     display: flex;
     justify-content: center;
-    background-color: rgb(0, 1, 6);
+    background: linear-gradient(to top, #2d2646, #1f1f3e);
     padding: 6% 4%;
     width: 100vw;
 }
@@ -157,7 +157,7 @@ nav{
     position: absolute;
     top: 43%;
     width: 80%;
-    font-size: 28px;
+    font-size: 1.3em;
     text-align: center;
     font-weight: 550;
     transition: 0.5s;
@@ -192,19 +192,143 @@ span, .why span{
 }
 
 .ai{
-    /* background-color: rgb(216, 213, 210); */
-    width: 100%;
+    /* width: 100%; */
+    width: 40%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .ai form{
-    text-align: center;
+    text-align: left;
+    padding: 9% 6%;
+    position: relative;
+    z-index: 1;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
 }
 
 .select{
     padding: 1% 4%;
-    background-color: #292e5a;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    position: static;
+    position: relative;
+    z-index: 1;
+    text-align: center;
     border-radius: 10px;
+    margin: 3% 6%;
+}
+
+.backdrop{
+    opacity: 20% !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    border-radius: 3%;
+    align-items: center;
+    background-color: rgb(252, 253, 252);
+}
+
+.now{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ai hr{
+    color: black;
+    margin: auto 3%;
+    width: 80%;
+}
+
+#audio-submit{
+    width: 35%;
+    padding: 4% 6%;
+    color: rgb(3, 2, 2);
+    background-color: aqua;
+    text-align: center;
+    width: 70%;
+    /* border-radius: 5%; */
+    align-self: center;
+}
+
+.gender{
+    display: flex;
+    /* justify-content: space; */
+    margin-left: 4%;
+}
+
+#param1{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 4%;
+}
+
+.fl{                                                                                        
+    display: flex;
+    /* justify-content: space-evenly; */
+    width: 90%;
+    /* background-color: aliceblue; */
+    align-self: center;
+    justify-content: center;
+    height: 7%;
+    position: absolute;
+    border: dotted;
+    padding: 2% 4%;
+    top: 1.5%;
+}
+
+#audio_file{
+    /* right: 30%; */
+}
+
+.selectfile{
+    /* left: 10%; */
+    font-size: 0.8em;
+    margin-right: 3%;
+}
+
+.age, .res, .fev, .gen{
+    display: flex;
+    justify-content: flex-start;
+    margin: auto 1%;
+    width: 100%;
+}
+
+form label{
+    margin-left: 6%;
+    font-weight: 600;
+}
+
+.gender label{
+    /* margin: 0% !important; */
+}
+
+.gender p{
+    margin-right: 3%;
+}
+
+input[type="checkbox" i]{
+    margin: auto 6%;
+}
+
+.age input{
+    width: 100%;
+    padding: 4% 6%;
+    border-radius: 3%;
+}
+
+.checkboxes{
+    text-align: center;
+    color: #272728;
+    font-size: 1.2em;
 }

@@ -10,7 +10,7 @@
     type="image/x-icon" /> 
     <link rel="stylesheet" href="{{ url_for ('static',
     filename = "style.css") }}" />
-    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -22,7 +22,7 @@
                     <p class="wash_text">Have you washed your hands today?</p>
                     <div class="wash_emoji"><div style="width:100%;height:0;padding-bottom:100%;position:relative;pointer-events: none;"><iframe src="https://giphy.com/embed/44Xl7AyW9wAXRJZalt" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div></div>
                 </div>
-                <div class="online_doc"><a href="https://www.mayoclinic.org/"><p>Online Doctor?</p></a></div>
+                <div class="online_doc"><a href="https://www.mayoclinic.org/symptom-checker/select-symptom/itt-20009075"><p>Online Doctor?</p></a></div>
             </div>
         </nav>
     </header>
@@ -38,38 +38,52 @@
     </div>
     <div class="section2">
         <div class="ai">
+            <div class="now">
+            <div class="backdrop"></div>
             <div class="select">Let's analyze your cough</div>
-            <form action="{{ url_for('upload_audio') }}" method="POST" enctype="multipart/form-data">
-                <label for="audio_file" class="selectfile">Select an audio file:</label>
-                <br>
-                <input type="file" id="audio_file" name="audio_file" accept="audio/*" required>
+            <hr>
+            <form id="upload-form" action="{{ url_for('upload_audio') }}" method="POST" enctype="multipart/form-data" onsubmit="handleFormSubmit(event)">
+                <div class="fl">
+                    <label for="audio_file" class="selectfile">Select an audio file:</label>
+                    <input type="file" id="audio_file" name="audio_file" accept="audio/*" required>
+                </div>
                 <br><br>
-                <label for="checkboxes">Select any additional parameters:</label>
+                <label class= "checkboxes" for="checkboxes">Select any additional parameters:</label>
                 <br>
-                <input type="text" id="param1" name="param1" placeholder="How old are you?" pattern="\d+" required>
-                <label for="param2">Age</label>
-                <br>
-                <input type="checkbox" id="param2" name="param2" value="param2" required>
-                <label for="param1">Fever/Muscle pain</label>
-                <br>
-                <div class="gender">
-                    <label>
-                        <input type="radio" name="gender" value="male">
-                        Male
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="gender" value="female">
-                        Female
-                    </label>
+                <div class="age">
+                    <label for="param1">Age</label>
+                    <input type="text" id="param1" name="param1" placeholder="How old are you?" pattern="\d+" required>
                 </div>
                 <br>
-                <input type="checkbox" id="param4" name="param4" value="param4" required>
-                <label for="param3">Respiratory Condition</label>
+                <div class="gen">
+                    <label>Gender</label>
+                    <div class="gender">
+                        <label>
+                            <input type="radio" name="gender" value="1" required>
+                            <p>Male</p>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="2" required>
+                            <p>Female</p>
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="fev">
+                    <input type="checkbox" id="param2" name="param2" value="1">
+                    <label for="param2">Fever/Muscle pain</label>
+                </div>
+                <br>
+                <div class="res">
+                    <input type="checkbox" id="param4" name="param4" value="1">
+                    <label for="param4">Do you have a Respiratory Condition? | Select the checkbox if Yes.</label>
+                </div>
                 <br><br>
-                <input type="submit" value="Upload">
+                <input id="audio-submit" type="submit" value="Upload">
             </form>
+            <div class="result"><p>{{ result|safe }}</p></div>
         </div>
+    </div>
     </div>
     <div class="section3">
         <div class="disp">

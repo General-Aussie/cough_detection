@@ -1,0 +1,8 @@
+name: respir
+env: python-3.7
+services:
+  web:
+    build:
+      context: .
+    command: python app.py
+    port: 8080

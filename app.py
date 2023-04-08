@@ -26,7 +26,7 @@ def feature_extract(file):
 
 # load the saved model
 loaded_model = tf.keras.models.load_model(
-    '/Users/mac/Downloads/cough_dec/cough_detection/my_model.h5', compile=False)
+    'my_model.h5', compile=False)
 
 
 def ANN_predict(file_name, predict_demo_fac):

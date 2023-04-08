@@ -2,6 +2,6 @@ name: respir
 env: python3.7
 commands:
   - pip install -r requirements.txt
-start: flask run
+  - python app.py
 
 

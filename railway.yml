@@ -1,8 +1,8 @@
 name: respir
-env: python-3.7
-services:
-  web:
-    build:
-      context: .
-    command: python app.py
-    port: 8080
+env: python-3.8
+commands:
+  - pip install -r requirements.txt
+  - python manage.py migrate
+  - python manage.py collectstatic --noinput
+start: gunicorn your_project.wsgi:application --bind 0.0.0.0:$PORT --log-level debug --timeout 180
+

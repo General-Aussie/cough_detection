@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for, s
     send_from_directory
 import os
 import librosa
-import pandas as pd
 import numpy as np
 import tensorflow as tf
 from numpy import argmax
@@ -13,7 +12,7 @@ from tensorflow.keras.models import load_model
 app = Flask(__name__)
 app.debug = True
 
-@app.route('/home')
+@app.route('/')
 def forgot():
     return render_template("index.html")
 
@@ -24,9 +23,12 @@ def feature_extract(file):
     return mfccs_scaled_feature
 
 
+# get the absolute path to the my_model.h5 file
+model_path = os.path.abspath('my_model.h5')
+
 # load the saved model
 loaded_model = tf.keras.models.load_model(
-    'my_model.h5', compile=False)
+    model_path, compile=False)
 
 
 def ANN_predict(file_name, predict_demo_fac):
@@ -89,4 +91,4 @@ def upload_audio():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=5000)

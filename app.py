@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for, s
     send_from_directory
 import os
 import librosa
-import pandas as pd
 import numpy as np
 import tensorflow as tf
 from numpy import argmax

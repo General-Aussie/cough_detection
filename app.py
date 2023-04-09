@@ -12,7 +12,7 @@ from tensorflow.keras.models import load_model
 app = Flask(__name__)
 app.debug = True
 
-@app.route('/home')
+@app.route('/')
 def forgot():
     return render_template("index.html")
 

@@ -23,9 +23,12 @@ def feature_extract(file):
     return mfccs_scaled_feature
 
 
+# get the absolute path to the my_model.h5 file
+model_path = os.path.abspath('my_model.h5')
+
 # load the saved model
 loaded_model = tf.keras.models.load_model(
-    '/cough_detection/my_model.h5', compile=False)
+    model_path, compile=False)
 
 
 def ANN_predict(file_name, predict_demo_fac):

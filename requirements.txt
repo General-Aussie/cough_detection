@@ -53,7 +53,6 @@ scipy==1.7.3
 six==1.16.0
 soundfile==0.12.1
 soxr
-tensorboard==2.0.2
 tensorflow==2.5.0
 tensorflow-estimator==2.0.1
 termcolor==2.2.0

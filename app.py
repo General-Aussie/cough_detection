@@ -21,22 +21,25 @@ def feature_extract(file):
 
 # get the absolute path to the my_model.h5 file
 model_path = os.path.abspath('my_model.h5')
-
+print(model_path)
 # load the saved model
-loaded_model = tf.keras.models.load_model(
+loaded_model = load_model(
     model_path, compile=False)
 
 
 def ANN_predict(file_name, predict_demo_fac):
     predict_data = feature_extract(file_name)
+    print(predict_data)
     # 'age','gender','respiratory_condition','fever_muscle_pain' order
     predict_concat = np.concatenate((predict_data, predict_demo_fac), axis=0)
     input = predict_concat
     input_array = np.asarray(input)
     input_reshaped = input_array.reshape(1, -1)
     input_reshaped.shape
+    cough_res = None
     # print("  Covid-19   Healthy   Symptomatic")
     cough_res = loaded_model.predict(input_reshaped)
+    print(cough_res)
     return cough_res
 
 
@@ -65,19 +68,24 @@ def respir():
         audio_file_path = os.path.join('uploads', audio_file.filename)
         audio_file.save(audio_file_path)
         rees = [age, respiratory_condition, fever_musclePain, gender]
+        print(rees)
         print(audio_file_path)
         for i in rees:
             uploaded_data.append(i)
-        if uploaded_data and audio_file:
+        print(uploaded_data)
+        if uploaded_data and audio_file_path:
+            print("good")
             predicts = ANN_predict(audio_file_path, uploaded_data)
+            print(predicts)
+            max_index = None
             max_index = np.argmax(predicts)
+            print(max_index)
             if max_index == 0:
                 result = "Covid-19"
             elif max_index == 1:
                 result = "Healthy"
             else:
                 result = "Symptomatic"
-    
         # return the result as a JSON object
         response = make_response({'result': result})
         response.headers['Content-Type'] = 'application/json'

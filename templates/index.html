@@ -79,7 +79,7 @@
                     <label for="param4">Do you have a Respiratory Condition? | Select the checkbox if Yes.</label>
                 </div>
                 <br><br>
-                <input id="audio-submit" type="submit" value="Upload">
+                <input id="audio-submit" type="button" value="Upload">
             </form>
             <div id="result"></div>
         </div>
@@ -100,4 +100,5 @@
         </div>
     </div>
 </body>
+<script src="{{ url_for('static', filename='cough.js') }}"></script>
 </html>

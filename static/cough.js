@@ -18,8 +18,8 @@ $(document).ready(function() {
           data: form_data,
           contentType: false,
           processData: false,
-          success: function(result) {
-              // Update result on webpage
+          success: function(response) {
+              var result = response.result;
               $('#result').text(result);
           },
           error: function() {

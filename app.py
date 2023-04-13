@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3.7
 
-from flask import Flask, render_template, request, jsonify, redirect, url_for, session, abort, \
+from flask import Flask, render_template, make_response, request, jsonify, redirect, url_for, session, abort, \
     send_from_directory
 import os
 import librosa
@@ -11,10 +11,6 @@ from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 app.debug = True
-
-@app.route('/')
-def forgot():
-    return render_template("index.html")
 
 def feature_extract(file):
     audio, sr = librosa.load(file, res_type='kaiser_fast')
@@ -44,9 +40,10 @@ def ANN_predict(file_name, predict_demo_fac):
     return cough_res
 
 
-@app.route('/upload', methods=['POST'])
-def upload_audio():
-    result = ''
+@app.route('/', methods=['POST', 'GET'])
+def respir():
+    result = None
+    predicts = None
     uploaded_data = []
     if request.method == 'POST':
         # Get the selected parameters
@@ -68,11 +65,11 @@ def upload_audio():
         audio_file_path = os.path.join('uploads', audio_file.filename)
         audio_file.save(audio_file_path)
         rees = [age, respiratory_condition, fever_musclePain, gender]
+        print(audio_file_path)
         for i in rees:
             uploaded_data.append(i)
         if uploaded_data and audio_file:
             predicts = ANN_predict(audio_file_path, uploaded_data)
-            result = None
             max_index = np.argmax(predicts)
             if max_index == 0:
                 result = "Covid-19"
@@ -81,11 +78,12 @@ def upload_audio():
             else:
                 result = "Symptomatic"
     
-    # return the uploaded audio file and parameters
-    print(rees)
-    print(result, max_index)
-    print(predicts)
-    return render_template('index.html', result=result)
+        # return the result as a JSON object
+        response = make_response({'result': result})
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    else:
+        return render_template('index.html')   
     
 
 

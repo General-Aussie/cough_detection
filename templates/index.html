@@ -36,6 +36,7 @@
     <div class="about-cont">    
     <div class="whyres"><p class="why">Why Respi<span>R</span>?</p><div class="about">Our AI-powered platform detects different types of coughs, including COVID, and symptomatic, providing quick feedback on respiratory disease symptoms. Healthcare professionals can use it to monitor outbreaks, and individuals can make informed decisions about seeking medical care. With accuracy, speed, and convenience, our web-based tool harnesses the power of AI to improve healthcare and make it accessible to everyone. Join us on this journey to track and detect respiratory illnesses in real-time.</div>
     </div>
+    </div>
     <div class="section2">
         <div class="ai">
             <div class="now">
@@ -81,7 +82,7 @@
                 <br><br>
                 <input id="audio-submit" type="button" value="Upload">
             </form>
-            <div id="result"></div>
+            <div class="result" id="result"><p>Health status: <p id="news"></p></p></div>
         </div>
     </div>
     </div>
@@ -90,15 +91,23 @@
             <img class="im1" id="im1" src="{{ url_for ('static',
             filename = "/images/cough2.jpg") }}" alt="">
             <img class="im2" id="im2" src="{{ url_for ('static',
-            filename = "/images/cough23.jpg") }}" alt="">
+            filename = "/images/cough3.jpg") }}" alt="">
             <img class="im3" id="im3" src="{{ url_for ('static',
             filename = "/images/cough4.jpg") }}" alt="">
             <img class="im4" id="im4" src="{{ url_for ('static',
             filename = "/images/cough5.jpg") }}" alt="">
             <img class="im5" id="im5" src="{{ url_for ('static',
             filename = "/images/cough6.jpg") }}" alt="">
+            <button class="prev" onclick="prevImage()">&lt;</button>
+            <button class="next" onclick="nextImage()">&gt;</button>
+        </div>
+        <div class="imsec">
+            <img class="section3im" src="{{ url_for ('static', filename = "images/logo.png") }}" alt="">
         </div>
     </div>
+    <div class="footer">
+        <p class="foot">@2023 Respir. All rights reserved.</p>
+    </div>
 </body>
-<script src="{{ url_for('static', filename='cough.js') }}"></script>
+<script src="{{ url_for ('static', filename = "cough.js") }}"></script>
 </html>

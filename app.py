@@ -20,7 +20,7 @@ def feature_extract(file):
 
 
 # get the absolute path to the my_model.h5 file
-model_path = os.path.abspath('my_model.h5')
+model_path = os.path.abspath('respir_model.h5')
 print(model_path)
 # load the saved model
 loaded_model = load_model(
@@ -42,9 +42,22 @@ def ANN_predict(file_name, predict_demo_fac):
     print(cough_res)
     return cough_res
 
+@app.route('/')
+def resp():
+    return render_template('login.html')
 
-@app.route('/', methods=['POST', 'GET'])
-def respir():
+
+@app.route('/login', methods = ['POST'])
+def login():
+    if (request.method == 'POST') and ('email' in request.form and 'password' in request.form):
+        return redirect(url_for('home'))
+    else:
+        return render_template('login.html')
+
+
+
+@app.route('/home', methods=['POST', 'GET'])
+def home():
     result = None
     predicts = None
     uploaded_data = []
@@ -92,9 +105,6 @@ def respir():
         return response
     else:
         return render_template('index.html')   
-    
-
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)

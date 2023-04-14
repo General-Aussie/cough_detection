@@ -97,47 +97,86 @@ nav{
     justify-content: center;
     background: linear-gradient(to top, #2d2646, #1f1f3e);
     padding: 6% 4%;
-    width: 100vw;
+    width: auto;
 }
 
 .disp{
-    position: absolute;
-    display: block;
-    width: 80%;
-    top: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 500px;
 }
 
-.im1{
+.disp img {
     width: 100%;
+    height: 100%;
+    /* margin: 0 10px; */
+    opacity: 0;
+    transition: opacity 0.5s;
+    object-fit: cover;
     position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 17px;
+    /* filter: blur(10px); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 5px solid #060606;
+}
+  
+
+.im1{
+    /* width: 100%; */
+    /* position: absolute; */
 }
 
 .im2{
-    width: 100%;
-    position: absolute;
+    /* width: 100%; */
+    /* position: absolute; */
 }
 
 .im3{
-    width: 100%;
-    position: absolute;
+    /* width: 100%; */
+    /* position: absolute; */
 }
 
 .im4{
-    width: 100%;
-    position: absolute;
+    /* width: 100%; */
+    /* position: absolute; */
 }
 
 .im5{
-    width: 100%;
+    /* width: 100%; */
+    /* position: absolute; */
+}
+
+.disp img.active {
+    opacity: 1;
+}
+
+.disp button {
     position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: aliceblue;
+    padding: 3px 6px;
+    border: black;
+}
+
+.disp button.prev {
+    left: 10px;
+}
+  
+.disp button.next {
+    right: 10px;
 }
 
 #bg-video {
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: 0; */
-    /* width: 100%; */
-    /* min-height: 100%; */
     z-index: -2;
     height: 100%;
 }
@@ -331,4 +370,57 @@ input[type="checkbox" i]{
     text-align: center;
     color: #272728;
     font-size: 1.2em;
+}
+
+.result {
+    background-color: aliceblue;
+    width: 50%;
+    font-size: 1.5em;
+    padding: 6% 11%;
+    text-align: center;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    margin-bottom: 10%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+}
+
+.covid{
+    color: red;
+}
+
+.healthy{
+    color: green;
+}
+
+.symptom{
+    color: rgb(221, 188, 1);
+}
+
+.foot{
+    background-color: black;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 0.7em;
+    padding: 1% 0%;
+}
+
+
+.section3{
+    padding: 9% 8%;
+    background-color: cadetblue;
+}
+
+.section3im{
+    width: 10% !important;
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    transform: rotateZ(-25deg);
+    padding: 2%;
+}
+
+.imsec{
+    position: relative;
 }

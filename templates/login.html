@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respir | AI Tool</title>
+    <link rel="icon" href="{{ url_for ('static', filename =
+    "images/respir.png") }}"
+    type="image/x-icon" /> 
+    <link rel="stylesheet" href="{{ url_for ('static',
+    filename = "login.css") }}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Respi<img class="logo-im" src="{{ url_for ('static', filename =
+                "images/logo.png") }}" alt=""></div>
+            <div class="health">
+                <div class="wash">
+                    <p class="wash_text">Have you washed your hands today?</p>
+                    <div class="wash_emoji"><div style="width:100%;height:0;padding-bottom:100%;position:relative;pointer-events: none;"><iframe src="https://giphy.com/embed/44Xl7AyW9wAXRJZalt" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div></div>
+                </div>
+                <div class="online_doc"><a href="https://www.mayoclinic.org/symptom-checker/select-symptom/itt-20009075"><p>Online Doctor?</p></a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="login">
+        <form class="loginform" action="{{ url_for('login') }}" method="POST">
+            <div class="logres"><p>Login to Respir</p></div>
+            <div class="email"><label for="">Email: </label><input type="email" name="email" id="" required></div>
+            <div class="pass"><label for="">Password: </label><input type="password" name="password" id="" required></div>
+            <div class="btn"><input type="submit" value="login"></div>
+        </form>
+    </div>
+    <div class="section2" id="section2">
+        <div class="background" id="background"></div>
+            <div class="disclaimer">
+                <h2>Disclaimer</h2>
+                <p class="clicking">
+                    The medical AI tool you are about to use is designed to assist healthcare professionals in making clinical decisions. It is not intended to replace the expertise and judgment of a licensed healthcare provider. The tool provides information and recommendations based on the data provided by the user and the algorithms programmed into the system. While the tool has been designed and tested to provide accurate and reliable information, it is not infallible. There may be errors or omissions in the data used to develop the algorithm or in the way the algorithm is applied to the data. Therefore, the results provided by the tool should be considered as only one factor in the decision-making process. The tool should not be used as a substitute for a complete medical evaluation or consultation with a licensed healthcare provider. Any medical decision should be made in consultation with a qualified healthcare provider who is familiar with the specifics of your individual case. The developers and operators of the tool make no warranties or representations, express or implied, regarding the accuracy, completeness, or reliability of the information provided by the tool. The tool is provided "as is" and without warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. By using the tool, you acknowledge and accept these limitations and disclaimers, and agree to use the tool solely at your own risk.
+                </p>
+                <p>By clicking <b>"Continue"</b> below, you acknowledge that you have read and understood the above disclaimer, and agree to use the tool solely at your own risk.</p>
+                <div class="checkbox">
+                    <input type="checkbox" id="understand">
+                    <label for="understand">OK, I understand</label>
+                </div>
+                <button id="continue" disabled>Continue</button>
+            </div>
+    </div>
+</body>
+<script src="{{ url_for ('static', filename = "login.js") }}"></script>
+</html>

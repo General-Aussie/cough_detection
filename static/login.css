@@ -1,0 +1,222 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+html, body{
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body{
+    font-family: Inter,Arial,sans-serif;
+    background-color: black;
+}
+
+nav{
+    position: fixed;
+    color: white;
+    top: 0;
+    width: -webkit-fill-available;
+    height: 5vh;
+    padding: 2% 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: black; */
+    z-index: 999999;
+}
+
+.logo{
+    position: absolute;
+    left: 3%;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.logo-im{
+    position: relative;
+    width: 6%;
+    transform: scale3d(1.2, 1.3, 1.2);
+}
+
+.health{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 2%;
+    width: 30%;
+    font-size: 12px;
+}
+
+.wash{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wash_emoji{
+    width: 20%;
+}
+
+.online_doc a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.online_doc{
+    display: flex;
+    align-items: center;
+    background: #36454f;
+    padding: 2% 5%;
+    border-radius: 2px;
+    font-weight: 550;
+    transition: 0.5s;
+}
+
+.online_doc:hover{
+    background: rgb(24, 169, 247);
+}
+
+.online_doc a:hover{
+    color: black !important;
+}
+
+.login{
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.loginform{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 3% 2%;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginform label{
+    font-size: 12px;
+}
+
+.email, .pass, .btn{
+    display: flex;
+    padding: 4% 3%;
+    justify-content: space-between;
+    width: 72%;
+}
+
+.btn input{
+    width: 100% !important;
+    padding: 3%;
+    background-color: #5ce1e6;
+    font-weight: 750;
+    font-size: 1.1em;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.logres{
+    padding: 5% 18%;
+    font-size: 1.5em;
+    font-weight: 200;
+    border: dotted;
+    border-radius: 30px;
+    margin-bottom: 10%;
+}
+
+.email input, .pass input{
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.disclaimer {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.background {
+    /* Background styles */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(206 171 171 / 50%); /* Semi-transparent black background */
+    backdrop-filter: blur(5px);
+    filter: blur(5px); /* Blur filter */
+    /* z-index: 999998; Place behind the popup box */
+    /* display: none; Hide by default */
+}
+
+.disclaimer h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.disclaimer p{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.clicking{
+    padding-bottom: 30px;
+}
+
+.checkbox {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+  
+.checkbox label {
+    font-size: 14px;
+}
+
+
+  
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+  
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}  
+
+.section2{
+    width: 100%;
+    height: 100vh;
+    z-index: 99999999;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    top: 0;
+    display: flex;
+}
+
+.remov{
+    display: none;
+}

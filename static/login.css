@@ -155,19 +155,32 @@ nav{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(182, 37, 37, 0.5); /* Semi-transparent black background */
+    background-color: rgb(206 171 171 / 50%); /* Semi-transparent black background */
     backdrop-filter: blur(5px);
     filter: blur(5px); /* Blur filter */
-    z-index: 999998; /* Place behind the popup box */
+    /* z-index: 999998; Place behind the popup box */
     /* display: none; Hide by default */
 }
 
 .disclaimer h2 {
     margin-top: 0;
+    margin-bottom: 5px;
+    color: black;
 }
-  
+
+.disclaimer p{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.clicking{
+    padding-bottom: 30px;
+}
+
 .checkbox {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
   
 .checkbox label {
@@ -202,4 +215,8 @@ button:disabled {
     color: white;
     top: 0;
     display: flex;
+}
+
+.remov{
+    display: none;
 }

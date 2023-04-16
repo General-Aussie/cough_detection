@@ -29,6 +29,7 @@ loaded_model = load_model(
 
 def ANN_predict(file_name, predict_demo_fac):
     predict_data = feature_extract(file_name)
+    print(predict_data)
     # 'age','gender','respiratory_condition','fever_muscle_pain' order
     predict_concat = np.concatenate((predict_data, predict_demo_fac), axis=0)
     input = predict_concat
@@ -38,17 +39,25 @@ def ANN_predict(file_name, predict_demo_fac):
     cough_res = None
     # print("  Covid-19   Healthy   Symptomatic")
     cough_res = loaded_model.predict(input_reshaped)
+    print(cough_res)
     return cough_res
 
-@app.route('/', methods=['POST'])
+@app.route('/')
+def resp():
+    return render_template('login.html')
+
+
+@app.route('/login', methods = ['POST'])
 def login():
-    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+    if (request.method == 'POST') and ('email' in request.form and 'password' in request.form):
         return redirect(url_for('home'))
     else:
         return render_template('login.html')
 
+
+
 @app.route('/home', methods=['POST', 'GET'])
-def respir():
+def home():
     result = None
     predicts = None
     uploaded_data = []

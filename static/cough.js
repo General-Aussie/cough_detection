@@ -38,7 +38,7 @@ $(document).ready(function() {
           }
       
           // Display result on HTML page
-          $('#result').text(result);
+          $('#news').text(result);
       },
       error: function() {
           alert('Error uploading audio file!');

@@ -27,10 +27,10 @@
         </nav>
     </header>
     <div class="login">
-        <form class="loginform" action="{{ url_for('login') }}" method="post">
+        <form class="loginform" action="{{ url_for('login') }}" method="POST">
             <div class="logres"><p>Login to Respir</p></div>
             <div class="email"><label for="">Email: </label><input type="email" name="email" id="" required></div>
-            <div class="pass"><label for="">password: </label><input type="password" name="password" id="" required></div>
+            <div class="pass"><label for="">Password: </label><input type="password" name="password" id="" required></div>
             <div class="btn"><input type="submit" value="login"></div>
         </form>
     </div>
